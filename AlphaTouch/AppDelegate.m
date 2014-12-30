@@ -16,7 +16,19 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    /* Find the dimensions of the screen. */
+    
+    // Get the main screen.
+    // Returns the screen object representing the device's screen.
+    UIScreen *screen = [UIScreen mainScreen];
+    
+    // Get the bounds of the main screen.
+    // Return the bounding rectangle of the screen.
+    CGRect viewRect = [screen bounds];
+    
+    // Report the dimensions of the main screen.
+    NSLog(@"Screen is %f points high and %f points wide.", viewRect.size.height, viewRect.size.width);
+    
     return YES;
 }
 
