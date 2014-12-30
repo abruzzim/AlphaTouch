@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController // (The "Paintbrush")
 
+- (void)chgBgTransparencyHalf:(id)sender;
+- (void)chgBgTransparencyFull:(id)sender;
+- (void)setBgColorPurple:(id)sender;
 
 @end
 
