@@ -106,6 +106,24 @@
     [btn3 setTitle:@"Btn3 Touched" forState:UIControlStateHighlighted];
     [btn3 addTarget:self action:@selector(chgBgTransparencyFull:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn3];
+
+    // Green Background Button
+    UIButton *greenBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    greenBtn.layer.cornerRadius = 10;
+    greenBtn.frame = CGRectMake((375/2)-(100/2), 300, 100, 44);
+    greenBtn.backgroundColor = [UIColor magentaColor];
+    [greenBtn setTitle:@"Make Green" forState:UIControlStateNormal];
+    [greenBtn addTarget:self action:@selector(setViewBgColor:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:greenBtn];
+    
+    // Blue Background Button
+    UIButton *blueBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    blueBtn.layer.cornerRadius = 10;
+    blueBtn.frame = CGRectMake((375/2)-(100/2), 350, 100, 44);
+    blueBtn.backgroundColor = [UIColor grayColor];
+    [blueBtn setTitle:@"Make Blue" forState:UIControlStateNormal];
+    [blueBtn addTarget:self action:@selector(setViewBgColor:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:blueBtn];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -151,6 +169,25 @@
     self.view.alpha = 1.0;
     // Remove the sender (the button) from the view.
     [sender removeFromSuperview];
+}
+
+// Instance method that returns nothing
+// called "chgViewBgColor"
+// that takes a pointer to an instance of a UIButton class
+// called "sender".
+
+- (void)setViewBgColor:(UIButton *)sender
+{
+    // Log the event to the console.
+    NSLog(@"chgViewBgColor event; Sending object is: %@", sender);
+    
+    // Examine the sender's (button's) properties
+    // to determine the correct action to take.
+    if ([sender.titleLabel.text isEqualToString:@"Make Green"]) {
+        self.view.backgroundColor = [UIColor greenColor];
+    } else {
+        self.view.backgroundColor = [UIColor blueColor];
+    }
 }
 
 @end
