@@ -21,6 +21,27 @@
     // Return the screen object representing the device's screen.
     CGRect viewRect = [[UIScreen mainScreen] bounds];
     
+    // Create the UIWindow (The "Canvas").
+    self.window = [[UIWindow alloc] initWithFrame:viewRect];
+    
+    // Create the ViewController (The "Paintbrush").
+    UIViewController *colorTouchVC = [[UIViewController alloc] init];
+    
+    // Create the View the size of the whole screen (The "Paint").
+    UIView *colorView = [[UIView alloc] initWithFrame:viewRect];
+    
+    // Return a color object for the background color.
+    colorView.backgroundColor = [UIColor colorWithRed:0.462 green:0.749 blue:0.937 alpha:1.0];
+    
+    // Assign the View for this ViewController.
+    colorTouchVC.view = colorView;
+    
+    // Assign the ViewController as the window's root view controller.
+    self.window.rootViewController = colorTouchVC;
+    
+    //Make the receiver the key window and visible.
+    [self.window makeKeyAndVisible];
+    
     // Report the dimensions of the main screen.
     NSLog(@"Screen is %f points high and %f points wide.", viewRect.size.height, viewRect.size.width);
     
