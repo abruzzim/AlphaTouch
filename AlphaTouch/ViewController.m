@@ -38,92 +38,102 @@
     
     /* Add Label Object */
     
-    // Create, place and size a label
-    UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake((375/2)-(200/2), 30, 200, 44)];
+    // Create, place and size a label using @property name.
+    self.headerLbl = [[UILabel alloc] initWithFrame:CGRectMake((375/2)-(200/2), 30, 200, 44)];
     
     // Declare the label background and alignment.
-    lbl.backgroundColor = [UIColor whiteColor];
-    lbl.textAlignment = NSTextAlignmentCenter;
+    self.headerLbl.backgroundColor = [UIColor whiteColor];
+    self.headerLbl.textAlignment = NSTextAlignmentCenter;
     
     // Declare the label text.
-    lbl.text = @"Test Label";
+    self.headerLbl.text = @"Test Label";
     
     // Add the label as a subview.
-    [self.view addSubview:lbl];
+    [self.view addSubview:self.headerLbl];
     
     /* Add Button Objects */
 
-    // Declare a button.
-    UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeSystem]; // The "Paint"; Control view object.
+    // Declare a button using @property name.
+    self.purpleBtn = [UIButton buttonWithType:UIButtonTypeSystem]; // The "Paint"; Control view object.
     
     // Set the button's corner radius.
-    btn1.layer.cornerRadius = 5;
+    self.purpleBtn.layer.cornerRadius = 5;
     
     // Place and size the button on the screen.
-    btn1.frame = CGRectMake((375/2)-(140/2), 150, 140, 44);
+    self.purpleBtn.frame = CGRectMake((375/2)-(140/2), 150, 140, 44);
     
     // Set the button's background color.
-    btn1.backgroundColor = [UIColor yellowColor];
+    self.purpleBtn.backgroundColor = [UIColor yellowColor];
     
     // Set the button's normal title.
-    [btn1 setTitle:@"Set Purple Bg" forState:UIControlStateNormal];
+    [self.purpleBtn setTitle:@"Set Purple Bg" forState:UIControlStateNormal];
     
     // Set the button's touched title
-    [btn1 setTitle:@"Btn1 Touched" forState:UIControlStateHighlighted];
+    [self.purpleBtn setTitle:@"Btn1 Touched" forState:UIControlStateHighlighted];
     
     // Add control event (which "listens" for a "TouchUpInside" event)
     //   that sends a message to the ViewController,
     //   to call the "setBgColorPurple:" method,
     //   when the button is touched then released.
     // Technically: Add a target and action for a particular event to an internal dispatch table.
-    [btn1 addTarget:self action:@selector(setBgColorPurple:) forControlEvents:UIControlEventTouchUpInside];
+    [self.purpleBtn addTarget:self
+                       action:@selector(setBgColorPurple:)
+             forControlEvents:UIControlEventTouchUpInside];
     
     // Add the button as a subview.
-    [self.view addSubview:btn1];
+    [self.view addSubview:self.purpleBtn];
     
-    // Declare a button.
-    UIButton *btn2 = [UIButton buttonWithType:UIButtonTypeSystem]; // The "Paint"; Control view object.
+    // Declare a button using @property name.
+    self.fiftyPctBtn = [UIButton buttonWithType:UIButtonTypeSystem]; // The "Paint"; Control view object.
     // Set the button's corner radius.
-    btn2.layer.cornerRadius = 5;
+    self.fiftyPctBtn.layer.cornerRadius = 5;
     // Place and size the button on the screen.
-    btn2.frame = CGRectMake((375/2)-(170/2), 200, 170, 44);
+    self.fiftyPctBtn.frame = CGRectMake((375/2)-(170/2), 200, 170, 44);
     // Set the button's background color.
-    btn2.backgroundColor = [UIColor greenColor];
+    self.fiftyPctBtn.backgroundColor = [UIColor greenColor];
     // Set the button's normal title.
-    [btn2 setTitle:@"Bg Transparency 50%" forState:UIControlStateNormal];
+    [self.fiftyPctBtn setTitle:@"Bg Transparency 50%" forState:UIControlStateNormal];
     // Set the button's touched title
-    [btn2 setTitle:@"Btn2 Touched" forState:UIControlStateHighlighted];
+    [self.fiftyPctBtn setTitle:@"Btn2 Touched" forState:UIControlStateHighlighted];
     // Add a control event
-    [btn2 addTarget:self action:@selector(chgBgTransparencyHalf:) forControlEvents:UIControlEventTouchUpInside];
+    [self.fiftyPctBtn addTarget:self
+                         action:@selector(setBgTransparency:)
+               forControlEvents:UIControlEventTouchUpInside];
     // Add the button as a subview.
-    [self.view addSubview:btn2];
+    [self.view addSubview:self.fiftyPctBtn];
     
-    UIButton *btn3 = [UIButton buttonWithType:UIButtonTypeRoundedRect]; // The "Paint"; Control view object.
-    btn3.backgroundColor = [UIColor orangeColor];
-    btn3.frame = CGRectMake((375/2)-(170/2), 250, 170, 44);
-    btn3.layer.cornerRadius = 5;
-    [btn3 setTitle:@"Bg Transparency 100%" forState:UIControlStateNormal];
-    [btn3 setTitle:@"Btn3 Touched" forState:UIControlStateHighlighted];
-    [btn3 addTarget:self action:@selector(chgBgTransparencyFull:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn3];
+    self.hundredPctBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect]; // The "Paint"; Control view object.
+    self.hundredPctBtn.backgroundColor = [UIColor orangeColor];
+    self.hundredPctBtn.frame = CGRectMake((375/2)-(170/2), 250, 170, 44);
+    self.hundredPctBtn.layer.cornerRadius = 5;
+    [self.hundredPctBtn setTitle:@"Bg Transparency 100%" forState:UIControlStateNormal];
+    [self.hundredPctBtn setTitle:@"Btn3 Touched" forState:UIControlStateHighlighted];
+    [self.hundredPctBtn addTarget:self
+                           action:@selector(setBgTransparency:)
+                 forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.hundredPctBtn];
 
     // Green Background Button
-    UIButton *greenBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    greenBtn.layer.cornerRadius = 10;
-    greenBtn.frame = CGRectMake((375/2)-(100/2), 300, 100, 44);
-    greenBtn.backgroundColor = [UIColor magentaColor];
-    [greenBtn setTitle:@"Make Green" forState:UIControlStateNormal];
-    [greenBtn addTarget:self action:@selector(setViewBgColor:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:greenBtn];
+    self.greenBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.greenBtn.layer.cornerRadius = 10;
+    self.greenBtn.frame = CGRectMake((375/2)-(100/2), 300, 100, 44);
+    self.greenBtn.backgroundColor = [UIColor magentaColor];
+    [self.greenBtn setTitle:@"Make Green" forState:UIControlStateNormal];
+    [self.greenBtn addTarget:self
+                      action:@selector(setViewBgColor:)
+            forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.greenBtn];
     
     // Blue Background Button
-    UIButton *blueBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    blueBtn.layer.cornerRadius = 10;
-    blueBtn.frame = CGRectMake((375/2)-(100/2), 350, 100, 44);
-    blueBtn.backgroundColor = [UIColor grayColor];
-    [blueBtn setTitle:@"Make Blue" forState:UIControlStateNormal];
-    [blueBtn addTarget:self action:@selector(setViewBgColor:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:blueBtn];
+    self.blueBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.blueBtn.layer.cornerRadius = 10;
+    self.blueBtn.frame = CGRectMake((375/2)-(100/2), 350, 100, 44);
+    self.blueBtn.backgroundColor = [UIColor grayColor];
+    [self.blueBtn setTitle:@"Make Blue" forState:UIControlStateNormal];
+    [self.blueBtn addTarget:self
+                     action:@selector(setViewBgColor:)
+           forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.blueBtn];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -151,22 +161,25 @@
     self.view.backgroundColor = [UIColor purpleColor];
 }
 
-- (void)chgBgTransparencyHalf:(id)sender
+// Instance method that returns nothing
+// called "setBgTransparency"
+// that takes an id (pointer to an instance) of a UIButton class instance
+// called "sender".
+- (void)setBgTransparency:(UIButton *)sender
 {
-    // Log event to the console.
-    NSLog(@"chgBgTransparencyHalf event; sender is: %@", sender);
-    // Set root view's background transparency to 1/2.
-    self.view.alpha = 0.5;
-    // Remove the sender (the button) from the view.
-    [sender removeFromSuperview];
-}
-
-- (void)chgBgTransparencyFull:(id)sender
-{
-    // Log event to the console.
-    NSLog(@"chgBgTransparencyFull event; sender is: %@", sender);
-    // Set root view's background transparency to 1.
-    self.view.alpha = 1.0;
+    // Log the event to the console.
+    NSLog(@"setBgTransparency event; Sending object is: %@", sender);
+    
+    // Examine the sender (the object)
+    // to determine the correct action to take.
+    if ([sender isEqual:self.fiftyPctBtn]) {
+        // Set the root view's background transparency to 1/2.
+        self.view.alpha = 0.5;
+    } else {
+        // Set the root view's background transparency to 1.
+        self.view.alpha = 1.0;
+    }
+    
     // Remove the sender (the button) from the view.
     [sender removeFromSuperview];
 }

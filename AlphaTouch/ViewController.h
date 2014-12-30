@@ -10,9 +10,16 @@
 
 @interface ViewController : UIViewController // (The "Paintbrush")
 
-- (void)chgBgTransparencyHalf:(id)sender;
-- (void)chgBgTransparencyFull:(id)sender;
+// Declare variable names for the subviews.
+@property (strong, nonatomic) UILabel *headerLbl;
+@property (weak, nonatomic) UIButton *fiftyPctBtn;
+@property (weak, nonatomic) UIButton *hundredPctBtn;
+@property (weak, nonatomic) UIButton *purpleBtn;
+@property (weak, nonatomic) UIButton *greenBtn;
+@property (weak, nonatomic) UIButton *blueBtn;
+
 - (void)setBgColorPurple:(id)sender;
+- (void)setBgTransparency:(id)sender;
 - (void)setViewBgColor:(id)sender;
 
 @end
