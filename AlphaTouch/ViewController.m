@@ -183,10 +183,14 @@
 - (void)setViewBgColor:(UIButton *)sender
 {
     // Log event to the console.
-    NSLog(@"setViewBgColor event; sender is: %@", sender);
+    NSLog(@"setViewBgColor-I-DEBUG, sender: %@", sender);
+    
+    NSLog(@"setViewBgColor-I-DEBUG, Button titleLabel text: %@", sender.titleLabel.text);
 
     self.btnLabels = @[@"Make Green",@"Make Blue",@"Set Purple Bg"];
     unsigned long label = [self.btnLabels indexOfObject:sender.titleLabel.text];
+    
+    NSLog(@"setViewBgColor-I-DEBUG, Selected button title index: %lu", label);
 
     // Examine the sender's (button's) property
     // converted into an unsigned long integer
