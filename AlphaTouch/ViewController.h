@@ -18,7 +18,6 @@
 @property (weak, nonatomic) UIButton *greenBtn;
 @property (weak, nonatomic) UIButton *blueBtn;
 
-- (void)setBgColorPurple:(id)sender;
 - (void)setBgTransparency:(id)sender;
 - (void)setViewBgColor:(id)sender;
 

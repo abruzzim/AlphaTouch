@@ -10,6 +10,8 @@
 
 @interface ViewController ()
 
+@property (strong, nonatomic) NSArray *btnLabels;
+
 @end
 
 @implementation ViewController // (The "Paintbrush")
@@ -77,7 +79,7 @@
     //   when the button is touched then released.
     // Technically: Add a target and action for a particular event to an internal dispatch table.
     [self.purpleBtn addTarget:self
-                       action:@selector(setBgColorPurple:)
+                       action:@selector(setViewBgColor:)
              forControlEvents:UIControlEventTouchUpInside];
     
     // Add the button as a subview.
@@ -150,21 +152,10 @@
 }
 
 // Instance method that returns nothing
-// called "setBgColorPurple:"
-// that takes an id (pointer to an instance) of a UIButton class instance
-// called "sender".
-- (void)setBgColorPurple:(id)sender
-{
-    // Log event to the console.
-    NSLog(@"setBgColorPurple event; sender is: %@", sender);
-    // Set the root view's background color to purple.
-    self.view.backgroundColor = [UIColor purpleColor];
-}
-
-// Instance method that returns nothing
 // called "setBgTransparency"
 // that takes an id (pointer to an instance) of a UIButton class instance
 // called "sender".
+
 - (void)setBgTransparency:(UIButton *)sender
 {
     // Log the event to the console.
@@ -185,21 +176,36 @@
 }
 
 // Instance method that returns nothing
-// called "chgViewBgColor"
+// called "setViewBgColor"
 // that takes a pointer to an instance of a UIButton class
 // called "sender".
 
 - (void)setViewBgColor:(UIButton *)sender
 {
-    // Log the event to the console.
-    NSLog(@"chgViewBgColor event; Sending object is: %@", sender);
-    
-    // Examine the sender's (button's) properties
+    // Log event to the console.
+    NSLog(@"setViewBgColor event; sender is: %@", sender);
+
+    self.btnLabels = @[@"Make Green",@"Make Blue",@"Set Purple Bg"];
+    unsigned long label = [self.btnLabels indexOfObject:sender.titleLabel.text];
+
+    // Examine the sender's (button's) property
+    // converted into an unsigned long integer
     // to determine the correct action to take.
-    if ([sender.titleLabel.text isEqualToString:@"Make Green"]) {
-        self.view.backgroundColor = [UIColor greenColor];
-    } else {
-        self.view.backgroundColor = [UIColor blueColor];
+    switch (label) {
+        case 0:
+            self.view.backgroundColor = [UIColor greenColor];
+            break;
+            
+        case 1:
+            self.view.backgroundColor = [UIColor blueColor];
+            break;
+            
+        case 2:
+            self.view.backgroundColor = [UIColor purpleColor];
+            break;
+            
+        default:
+            break;
     }
 }
 
