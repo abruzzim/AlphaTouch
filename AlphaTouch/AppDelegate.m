@@ -28,15 +28,6 @@
     // Create a ViewController (The "Paintbrush").
     self.viewController = [[ViewController alloc] init];
     
-    // Create a View the size of the whole screen (The "Paint").
-    UIView *view = [[UIView alloc] initWithFrame:viewRect];
-    
-    // Return a color object for the background color.
-    view.backgroundColor = [UIColor colorWithRed:0.462 green:0.749 blue:0.937 alpha:1.0];
-    
-    // Assign a View to this ViewController.
-    self.viewController.view = view;
-    
     // Assign a ViewController as the window's root view controller.
     self.window.rootViewController = self.viewController;
     
