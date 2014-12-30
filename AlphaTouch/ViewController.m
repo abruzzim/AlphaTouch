@@ -41,8 +41,9 @@
     // Create, place and size a label
     UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake((375/2)-(200/2), 30, 200, 44)];
     
-    // Declare the label background.
+    // Declare the label background and alignment.
     lbl.backgroundColor = [UIColor whiteColor];
+    lbl.textAlignment = NSTextAlignmentCenter;
     
     // Declare the label text.
     lbl.text = @"Test Label";
