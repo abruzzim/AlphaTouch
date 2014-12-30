@@ -35,6 +35,21 @@
     
     // Return a color object for the background color.
     self.view.backgroundColor = [UIColor colorWithRed:0.462 green:0.749 blue:0.937 alpha:1.0];
+    
+    /* Add Label Object */
+    
+    // Create, place and size a label
+    UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake((375/2)-(200/2), 30, 200, 44)];
+    
+    // Declare the label background.
+    lbl.backgroundColor = [UIColor whiteColor];
+    
+    // Declare the label text.
+    lbl.text = @"Test Label";
+    
+    // Add the label as a subview.
+    [self.view addSubview:lbl];
+    
 }
 
 - (void)didReceiveMemoryWarning {
