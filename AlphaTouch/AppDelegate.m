@@ -18,13 +18,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     /* Find the dimensions of the screen. */
     
-    // Get the main screen.
-    // Returns the screen object representing the device's screen.
-    UIScreen *screen = [UIScreen mainScreen];
-    
-    // Get the bounds of the main screen.
-    // Return the bounding rectangle of the screen.
-    CGRect viewRect = [screen bounds];
+    // Return the screen object representing the device's screen.
+    CGRect viewRect = [[UIScreen mainScreen] bounds];
     
     // Report the dimensions of the main screen.
     NSLog(@"Screen is %f points high and %f points wide.", viewRect.size.height, viewRect.size.width);
