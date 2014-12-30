@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h" // Import the custom class.
 
 @interface AppDelegate ()
 
@@ -18,26 +19,26 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     /* Find the dimensions of the screen. */
     
-    // Return the screen object representing the device's screen.
+    // Return a screen object representing the device's screen.
     CGRect viewRect = [[UIScreen mainScreen] bounds];
     
-    // Create the UIWindow (The "Canvas").
+    // Create a UIWindow (The "Canvas").
     self.window = [[UIWindow alloc] initWithFrame:viewRect];
     
-    // Create the ViewController (The "Paintbrush").
-    UIViewController *colorTouchVC = [[UIViewController alloc] init];
+    // Create a ViewController (The "Paintbrush").
+    self.viewController = [[ViewController alloc] init];
     
-    // Create the View the size of the whole screen (The "Paint").
-    UIView *colorView = [[UIView alloc] initWithFrame:viewRect];
+    // Create a View the size of the whole screen (The "Paint").
+    UIView *view = [[UIView alloc] initWithFrame:viewRect];
     
     // Return a color object for the background color.
-    colorView.backgroundColor = [UIColor colorWithRed:0.462 green:0.749 blue:0.937 alpha:1.0];
+    view.backgroundColor = [UIColor colorWithRed:0.462 green:0.749 blue:0.937 alpha:1.0];
     
-    // Assign the View for this ViewController.
-    colorTouchVC.view = colorView;
+    // Assign a View to this ViewController.
+    self.viewController.view = view;
     
-    // Assign the ViewController as the window's root view controller.
-    self.window.rootViewController = colorTouchVC;
+    // Assign a ViewController as the window's root view controller.
+    self.window.rootViewController = self.viewController;
     
     //Make the receiver the key window and visible.
     [self.window makeKeyAndVisible];
